@@ -27,6 +27,7 @@ Things you may want to cover:
 Tables:-
 1. Category: name, id
 2. Item: id, name, price, mrp, stock
+3. Location: id, name, street, flat_no, apartment_name, landmark, zipcode, lat, lng, city, state, country
 3. Order: id, number, delivery address, number_of_items, state
 4. OrderItem:- item_id, order_id, quantity
 5. User: email, name, phone, id

@@ -19,7 +19,7 @@ default: &default
 development:
   <<: *default
   database: omnicurius_grocery_app_development
-  username: <%= ENV['DATABASE_USER_NAME'] %>
+  username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
  
 
