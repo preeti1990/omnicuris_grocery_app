@@ -34,10 +34,10 @@ Tables:-
 
 
 #list of all the APIS
-
+0. ruby version 2.5, rails 5.2.2, mysql >= 7
 1. List of user orders
 2. Create order
-3. Edit order
+3. UPDATE order
 4. Delete order(Cancel)
 5. CRUD on item
 6. List of items

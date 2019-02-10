@@ -5,6 +5,7 @@ class Api::V1::ItemsController < ApplicationController
   def index
     results = {}
     results[:data] = Item.get_items_result(params)
+    results[:status] = 'ok'
     render json: results
   end
 
@@ -14,6 +15,7 @@ class Api::V1::ItemsController < ApplicationController
 
   def show
     result = {}
+    result[:status] = 'ok'
     result[:data] = @item.get_details
     render json: result
   end
@@ -21,6 +23,7 @@ class Api::V1::ItemsController < ApplicationController
   def update
     result = {}
     @item.update_item(params)
+    result[:status] = 'ok'
     result[:message] = 'item updated successfully'
     render json: result
   end
@@ -28,6 +31,7 @@ class Api::V1::ItemsController < ApplicationController
   def delete
     result = {}
     @item.destoy
+    result[:status] = 'ok'
     result[:message] = 'item deleted successfully'
     render josn: result
   end
