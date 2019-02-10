@@ -19,6 +19,10 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def update
+    result = {}
+    @item.update_item(params)
+    result[:message] = 'item updated successfully'
+    render json: result
   end
 
   def delete

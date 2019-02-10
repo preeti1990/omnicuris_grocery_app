@@ -22,14 +22,15 @@ class Api::V1::OrdersController < ApplicationController
 
   def update
     results = {}
-    @order.update(state: params[:state])
-    result[:message] = 'order updated successfully'
+    @order.update(state: params[:state], delivery_location_id: @order.delivery_location_id)
+
+    results[:message] = 'order updated successfully'
     render json: results
   end
 
   def add_remove_item
     results = {}
-    message = @order.add_remove_items(params)
+    message = @order.handle_add_remove_items(params)
     results[:message] = message
     render json: results
   end

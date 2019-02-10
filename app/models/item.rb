@@ -22,10 +22,14 @@ class Item < ApplicationRecord
 
   def get_details
     {id: self.id, name: self.name, category_id: self.category_id, 
-        mrp: self.mrp, rate: self.rate, in_stock: self.in_stock}
+        mrp: self.mrp, rate: self.rate, in_stock: self.in_stock }
   end
 
   def in_stock
     self.quantity > 0
+  end
+
+  def update_item(params)
+    self.update(mrp: params[:mrp], rate: params[:rate], name: params[:name], quantity: params[:quantity])
   end
 end

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :location
+  
   has_many :order_items
   belongs_to :user
 
@@ -33,10 +33,10 @@ class Order < ApplicationRecord
     Location.find(self.delivery_location_id)
   end
 
-  def add_remove_items(params)
+  def handle_add_remove_items(params)
     message = ""
     if(params[:remove_item])
-      self.order_items.where(item_id: params[:item_id]).destroy
+      self.order_items.where(item_id: params[:item_id]).first.destroy
       message = "item removed successfully"
     elsif(params[:add_item])
       self.order_items.create(item_id: params[:item_id], order_id: self.id, amount: (params[:quantity].to_i * Item.find(params[:item_id]).rate.to_f).to_f)
