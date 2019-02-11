@@ -52,8 +52,10 @@ Tables:-
 3. bundle install
 4. install mysql 
 6. bundle install
-7. rake db:seed
-8. to generate access_token for token based authentication using doorkeeper run below :-
+7. rake db:create
+8. rake db:migrate
+9. rake db:seed
+10. to generate access_token for token based authentication using doorkeeper run below :-
     curl -X POST -d "grant_type=password&email=prtjan6990@gmail.com&password=preeti@123" localhost:3000/oauth/token
     above is the user email and password for authenticated user
 
